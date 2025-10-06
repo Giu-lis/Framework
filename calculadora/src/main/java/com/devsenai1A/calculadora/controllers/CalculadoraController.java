@@ -3,7 +3,6 @@ package com.devsenai1A.calculadora.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,13 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CalculadoraController {
-
-	@GetMapping("/somar")
-    public double somar(@RequestParam double a, @RequestParam double b) {
-        return a + b;
-    }
-	
-	//colocar os métodos subtrair, multiplicar e dividir
 	
 	@PostMapping("/calcular")
 	@ResponseBody
@@ -40,8 +32,8 @@ public class CalculadoraController {
 		}
 		
 		Map<String, Object> resp = new HashMap<>();
-		resp.put("resultado: ", resultado);
-		resp.put("erro: ", erro);
+		resp.put("resultado", resultado);
+		resp.put("erro", erro);
 		return resp;
 		
 		
